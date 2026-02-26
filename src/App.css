@@ -1,4 +1,7 @@
-* {
+/* ===== Reset & Base ===== */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -9,6 +12,7 @@ body {
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   min-height: 100vh;
   color: #fff;
+  line-height: 1.5;
 }
 
 .app {
@@ -20,7 +24,7 @@ body {
   flex-direction: column;
 }
 
-/* Header */
+/* ===== Header ===== */
 .header {
   text-align: center;
   padding: 20px 0;
@@ -36,12 +40,13 @@ body {
 }
 
 .subtitle {
-  color: #8892b0;
+  color: #a8b2d1;
   font-size: 0.95rem;
 }
 
-/* Loading & Error */
-.loading, .error {
+/* ===== Loading & Error ===== */
+.loading,
+.error {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -49,20 +54,6 @@ body {
   justify-content: center;
   text-align: center;
   padding: 40px;
-}
-
-.spinner {
-  width: 50px;
-  height: 50px;
-  border: 4px solid rgba(255, 255, 255, 0.1);
-  border-top-color: #f39c12;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin-bottom: 20px;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
 }
 
 .error button {
@@ -81,7 +72,40 @@ body {
   background: #c0392b;
 }
 
-/* Current Weather */
+.error button:focus-visible {
+  outline: 3px solid #f39c12;
+  outline-offset: 2px;
+}
+
+.error-detail {
+  color: #a8b2d1;
+  font-size: 0.85rem;
+  margin-top: 8px;
+}
+
+/* ===== Banners ===== */
+.offline-banner,
+.stale-banner {
+  text-align: center;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+.offline-banner {
+  background: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+  border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+.stale-banner {
+  background: rgba(243, 156, 18, 0.15);
+  color: #f39c12;
+  border: 1px solid rgba(243, 156, 18, 0.2);
+}
+
+/* ===== Current Weather ===== */
 .current-weather {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
@@ -128,11 +152,11 @@ body {
 }
 
 .feels-like {
-  color: #8892b0;
+  color: #a8b2d1;
   font-size: 0.95rem;
 }
 
-/* Weather Details */
+/* ===== Weather Details ===== */
 .weather-details {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -164,7 +188,7 @@ body {
 .detail-label {
   display: block;
   font-size: 0.8rem;
-  color: #8892b0;
+  color: #a8b2d1;
   margin-bottom: 5px;
 }
 
@@ -175,7 +199,7 @@ body {
   color: #ccd6f6;
 }
 
-/* Forecast */
+/* ===== Forecast ===== */
 .forecast {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
@@ -244,11 +268,11 @@ body {
   color: #64b5f6;
 }
 
-/* Footer */
+/* ===== Footer ===== */
 .footer {
   text-align: center;
   padding: 20px 0;
-  color: #8892b0;
+  color: #a8b2d1;
   font-size: 0.8rem;
 }
 
@@ -261,7 +285,77 @@ body {
   text-decoration: underline;
 }
 
-/* Responsive */
+.footer a:focus-visible {
+  outline: 2px solid #f39c12;
+  outline-offset: 2px;
+}
+
+/* ===== Skeleton Loading ===== */
+.skeleton-container {
+  animation: skeleton-fade 1.5s ease-in-out infinite;
+}
+
+.skeleton-card {
+  opacity: 0.6;
+}
+
+.skeleton-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.skeleton-circle-sm {
+  width: 32px;
+  height: 32px;
+}
+
+.skeleton-line {
+  height: 16px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.skeleton-large {
+  width: 120px;
+  height: 48px;
+}
+
+.skeleton-medium {
+  width: 160px;
+  height: 20px;
+  margin: 8px auto;
+}
+
+.skeleton-small {
+  width: 80px;
+  height: 14px;
+  margin: 4px auto;
+}
+
+.skeleton-tiny {
+  width: 50px;
+  height: 12px;
+}
+
+@keyframes skeleton-fade {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+/* ===== Accessibility ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== Responsive ===== */
 @media (max-width: 480px) {
   .app {
     padding: 15px;
@@ -287,5 +381,17 @@ body {
 
   .forecast-date {
     font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .weather-details {
+    grid-template-columns: 1fr;
+  }
+
+  .forecast-item {
+    grid-template-columns: 70px 30px 60px 1fr;
+    gap: 8px;
+    padding: 10px;
   }
 }
