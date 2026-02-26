@@ -1,0 +1,16 @@
+{
+  "name": "Freiberg Wetter",
+  "short_name": "Wetter",
+  "description": "Aktuelles Wetter und Vorhersage für Freiberg am Neckar",
+  "start_url": "/freiberg-weather/",
+  "display": "standalone",
+  "background_color": "#1a1a2e",
+  "theme_color": "#1a1a2e",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
