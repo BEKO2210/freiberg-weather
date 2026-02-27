@@ -34,7 +34,7 @@ export function InfoButton({ title, text }: InfoButtonProps) {
     <>
       <button
         className="info-btn"
-        onClick={() => setOpen(true)}
+        onClick={(e) => { e.stopPropagation(); setOpen(true) }}
         aria-label={`Info: ${title}`}
         title={`Info: ${title}`}
       >
@@ -49,7 +49,7 @@ export function InfoButton({ title, text }: InfoButtonProps) {
               <button
                 className="info-modal-close"
                 onClick={() => setOpen(false)}
-                aria-label="Schliessen"
+                aria-label="Schließen"
               >
                 &times;
               </button>

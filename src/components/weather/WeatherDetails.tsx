@@ -84,7 +84,7 @@ export const WeatherDetails = memo(function WeatherDetails({ data }: WeatherDeta
         <h2>Details</h2>
         <InfoButton
           title="Wetter-Details"
-          text="Detaillierte Messwerte fuer Freiberg am Neckar: Luftfeuchtigkeit in Prozent, Windgeschwindigkeit und -richtung, aktueller Niederschlag in Millimetern und Luftdruck in Hektopascal (hPa). Der Normalwert fuer den Luftdruck liegt bei ca. 1013 hPa."
+          text="Detaillierte Messwerte für Freiberg am Neckar: Luftfeuchtigkeit in Prozent, Windgeschwindigkeit und -richtung, aktueller Niederschlag in Millimetern und Luftdruck in Hektopascal (hPa). Der Normalwert für den Luftdruck liegt bei ca. 1013 hPa."
         />
       </div>
       <div className="weather-details">

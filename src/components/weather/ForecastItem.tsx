@@ -19,7 +19,7 @@ export const ForecastItem = memo(function ForecastItem({ forecast, isToday }: Fo
         <WeatherIcon code={forecast.weatherCode} size={28} />
       </span>
       <span className="forecast-temps">
-        <span className="temp-max" aria-label={`Hoechsttemperatur ${Math.round(forecast.tempMax)} Grad`}>
+        <span className="temp-max" aria-label={`Höchsttemperatur ${Math.round(forecast.tempMax)} Grad`}>
           {Math.round(forecast.tempMax)}&#176;
         </span>
         <span className="temp-min" aria-label={`Tiefsttemperatur ${Math.round(forecast.tempMin)} Grad`}>

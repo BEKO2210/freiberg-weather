@@ -14,7 +14,7 @@ export const ForecastList = memo(function ForecastList({ days }: ForecastListPro
         <h2>5-Tage Vorschau</h2>
         <InfoButton
           title="5-Tage Vorhersage"
-          text="Wettervorhersage fuer die naechsten fuenf Tage in Freiberg am Neckar. Zeigt die erwarteten Hoechst- und Tiefsttemperaturen sowie die vorhergesagte Niederschlagsmenge pro Tag. Die Daten stammen vom Europaeischen Wetterdienst ueber die Open-Meteo API."
+          text="Wettervorhersage für die nächsten fünf Tage in Freiberg am Neckar. Zeigt die erwarteten Höchst- und Tiefsttemperaturen sowie die vorhergesagte Niederschlagsmenge pro Tag. Die Daten stammen vom Europäischen Wetterdienst über die Open-Meteo API."
         />
       </div>
       <div className="forecast-list" role="list">

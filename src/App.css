@@ -63,10 +63,14 @@ body::before {
   max-width: 640px;
   margin: 0 auto;
   padding: 16px 20px;
+  padding-top: max(16px, env(safe-area-inset-top));
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* ===== Animations ===== */
@@ -124,6 +128,41 @@ body::before {
   margin-bottom: 18px;
 }
 
+/* ===== Collapsible Sections ===== */
+.collapsible-header {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  margin-bottom: 0;
+}
+
+.collapsible-header:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.collapsible-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chevron {
+  color: var(--text-muted);
+  transition: transform var(--transition);
+  flex-shrink: 0;
+}
+
+.chevron-open {
+  transform: rotate(90deg);
+}
+
+.collapsible-content {
+  margin-top: 18px;
+  animation: fadeInUp 0.3s ease-out both;
+}
+
 .section-header h2 {
   font-size: 1.05rem;
   font-weight: 600;
@@ -145,6 +184,10 @@ body::before {
 
 .header-icon {
   flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  object-fit: contain;
 }
 
 .header-text h1 {

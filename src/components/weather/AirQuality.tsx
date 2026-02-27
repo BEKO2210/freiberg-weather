@@ -12,12 +12,12 @@ export const AirQuality = memo(function AirQuality({ data }: AirQualityProps) {
   const percentage = Math.min((data.europeanAqi / 100) * 100, 100)
 
   return (
-    <section className="section-card air-quality" aria-label="Luftqualitaet">
+    <section className="section-card air-quality" aria-label="Luftqualität">
       <div className="section-header">
-        <h2>Luftqualitaet</h2>
+        <h2>Luftqualität</h2>
         <InfoButton
-          title="Luftqualitaet"
-          text="Aktuelle Luftqualitaetsdaten fuer die Region Freiberg am Neckar. Der European Air Quality Index (EAQI) bewertet die Luftqualitaet: Gut (0-20), Akzeptabel (20-40), Maessig (40-60), Schlecht (60-80), Sehr schlecht (80+). PM10 und PM2.5 sind Feinstaubwerte, NO2 ist Stickstoffdioxid und O3 ist Ozon."
+          title="Luftqualität"
+          text="Aktuelle Luftqualitätsdaten für die Region Freiberg am Neckar. Der European Air Quality Index (EAQI) bewertet die Luftqualität: Gut (0-20), Akzeptabel (20-40), Mäßig (40-60), Schlecht (60-80), Sehr schlecht (80+). PM10 und PM2.5 sind Feinstaubwerte, NO2 ist Stickstoffdioxid und O3 ist Ozon."
         />
       </div>
 
@@ -43,24 +43,24 @@ export const AirQuality = memo(function AirQuality({ data }: AirQualityProps) {
       <div className="aqi-details">
         <div className="aqi-item">
           <span className="aqi-item-label">PM10</span>
-          <span className="aqi-item-value">{Math.round(data.pm10)} ug/m3</span>
+          <span className="aqi-item-value">{Math.round(data.pm10)} µg/m³</span>
         </div>
         <div className="aqi-item">
           <span className="aqi-item-label">PM2.5</span>
-          <span className="aqi-item-value">{Math.round(data.pm25)} ug/m3</span>
+          <span className="aqi-item-value">{Math.round(data.pm25)} µg/m³</span>
         </div>
         <div className="aqi-item">
-          <span className="aqi-item-label">NO2</span>
-          <span className="aqi-item-value">{Math.round(data.nitrogenDioxide)} ug/m3</span>
+          <span className="aqi-item-label">NO₂</span>
+          <span className="aqi-item-value">{Math.round(data.nitrogenDioxide)} µg/m³</span>
         </div>
         <div className="aqi-item">
-          <span className="aqi-item-label">O3</span>
-          <span className="aqi-item-value">{Math.round(data.ozone)} ug/m3</span>
+          <span className="aqi-item-label">O₃</span>
+          <span className="aqi-item-value">{Math.round(data.ozone)} µg/m³</span>
         </div>
       </div>
 
       <p className="aqi-note">
-        Feinstaub und Gase in Mikrogramm pro Kubikmeter. Niedrigere Werte bedeuten bessere Luftqualitaet.
+        Feinstaub und Gase in Mikrogramm pro Kubikmeter. Niedrigere Werte bedeuten bessere Luftqualität.
       </p>
     </section>
   )
