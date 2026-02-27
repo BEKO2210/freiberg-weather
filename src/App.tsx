@@ -68,7 +68,7 @@ function WeatherApp() {
       <main className="main">
         <CurrentWeather data={data.current} />
 
-        {data.hourly.length > 0 && (
+        {data.hourly && data.hourly.length > 0 && (
           <HourlyForecast hours={data.hourly} />
         )}
 
