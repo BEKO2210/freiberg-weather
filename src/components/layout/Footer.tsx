@@ -13,11 +13,11 @@ export function Footer({ fetchedAt }: FooterProps) {
         <p>
           Daten:{' '}
           <a href="https://open-meteo.com" target="_blank" rel="noopener noreferrer">
-            Open-Meteo API
+            Open-Meteo
           </a>
           {' '}&middot;{' '}
-          <a href="https://air-quality-api.open-meteo.com" target="_blank" rel="noopener noreferrer">
-            Luftdaten API
+          <a href="https://open-meteo.com/en/docs/air-quality-api" target="_blank" rel="noopener noreferrer">
+            Luftqualität
           </a>
         </p>
         <p>Aktualisiert: {timestamp}</p>

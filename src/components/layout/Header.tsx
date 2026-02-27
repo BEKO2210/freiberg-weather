@@ -4,7 +4,7 @@ export function Header() {
       <div className="header-content">
         <div className="header-logo">
           <img
-            src={import.meta.env.BASE_URL + 'icons/logo.png'}
+            src={import.meta.env.BASE_URL + 'icons/icon-192x192.png'}
             alt="Freiberg am Neckar Wappen"
             width="44"
             height="44"

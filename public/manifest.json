@@ -4,6 +4,7 @@
   "description": "Aktuelles Wetter, Luftqualität und Stadtinformationen für Freiberg am Neckar (71691)",
   "start_url": "/freiberg-weather/",
   "scope": "/freiberg-weather/",
+  "id": "/freiberg-weather/",
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#0a0f1c",
@@ -13,21 +14,28 @@
   "dir": "ltr",
   "icons": [
     {
-      "src": "icons/logo.png",
+      "src": "icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "icons/logo.png",
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "icons/icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml"
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

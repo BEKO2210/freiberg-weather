@@ -6,9 +6,15 @@ import App from './App.tsx'
 // Register service worker for PWA offline support
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/freiberg-weather/sw.js').catch(() => {
-      // Service worker registration failed silently
-    })
+    navigator.serviceWorker
+      .register('/freiberg-weather/sw.js', { updateViaCache: 'none' })
+      .then((registration) => {
+        // Check for updates every 30 minutes
+        setInterval(() => registration.update(), 30 * 60 * 1000)
+      })
+      .catch(() => {
+        // Service worker registration failed silently
+      })
   })
 }
 
