@@ -18,6 +18,10 @@ export function getCachedWeather(lat: number, lon: number): WeatherData | null {
     if (!raw) return null
 
     const entry: CacheEntry = JSON.parse(raw)
+    // Migrate old cache entries that lack hourly data
+    if (!entry.data.hourly) {
+      entry.data.hourly = []
+    }
     return entry.data
   } catch {
     return null
