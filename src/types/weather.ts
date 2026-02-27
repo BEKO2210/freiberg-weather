@@ -10,6 +10,14 @@ export interface CurrentWeather {
   pressure: number
 }
 
+/** Hourly forecast entry */
+export interface HourlyForecast {
+  time: string
+  temperature: number
+  precipitationProbability: number
+  weatherCode: number
+}
+
 /** Single day forecast */
 export interface DayForecast {
   date: string
@@ -19,9 +27,10 @@ export interface DayForecast {
   weatherCode: number
 }
 
-/** Combined weather data (current + forecast) */
+/** Combined weather data (current + hourly + forecast) */
 export interface WeatherData {
   current: CurrentWeather
+  hourly: HourlyForecast[]
   daily: DayForecast[]
   fetchedAt: number // timestamp for cache staleness
 }
@@ -34,7 +43,7 @@ export interface Location {
   timezone: string
 }
 
-/** Async data state — discriminated union for exhaustive handling */
+/** Async data state -- discriminated union for exhaustive handling */
 export type AsyncState<T> =
   | { status: 'loading'; cachedData?: T }
   | { status: 'success'; data: T; stale: boolean }

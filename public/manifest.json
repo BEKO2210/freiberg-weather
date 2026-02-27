@@ -1,16 +1,28 @@
 {
-  "name": "Freiberg Wetter",
-  "short_name": "Wetter",
-  "description": "Aktuelles Wetter und Vorhersage für Freiberg am Neckar",
+  "name": "Freiberg am Neckar - Wetter & Stadtinfo",
+  "short_name": "Freiberg Wetter",
+  "description": "Aktuelles Wetter, Luftqualitaet und Stadtinformationen fuer Freiberg am Neckar (71691)",
   "start_url": "/freiberg-weather/",
+  "scope": "/freiberg-weather/",
   "display": "standalone",
-  "background_color": "#1a1a2e",
-  "theme_color": "#1a1a2e",
+  "orientation": "portrait-primary",
+  "background_color": "#0a0f1c",
+  "theme_color": "#0f2847",
+  "categories": ["weather", "utilities"],
+  "lang": "de",
+  "dir": "ltr",
   "icons": [
     {
-      "src": "favicon.svg",
+      "src": "icons/icon.svg",
       "sizes": "any",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
     }
   ]
 }

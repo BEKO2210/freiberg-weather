@@ -1,18 +1,24 @@
 import { useWeather } from './hooks/useWeather'
+import { useAirQuality } from './hooks/useAirQuality'
 import { ErrorBoundary } from './components/ui/ErrorBoundary'
 import { OfflineBanner } from './components/ui/OfflineBanner'
 import { WeatherSkeleton } from './components/ui/Skeleton'
 import { Header } from './components/layout/Header'
 import { Footer } from './components/layout/Footer'
 import { CurrentWeather } from './components/weather/CurrentWeather'
+import { HourlyForecast } from './components/weather/HourlyForecast'
 import { WeatherDetails } from './components/weather/WeatherDetails'
 import { ForecastList } from './components/weather/ForecastList'
+import { AirQuality } from './components/weather/AirQuality'
+import { CityInfo } from './components/city/CityInfo'
+import { CityHistory } from './components/city/CityHistory'
 import './App.css'
 
 function WeatherApp() {
   const { state, refresh } = useWeather()
+  const airQualityState = useAirQuality()
 
-  // Loading with no cached data → show skeleton
+  // Loading with no cached data
   if (state.status === 'loading' && !state.cachedData) {
     return (
       <div className="app">
@@ -24,7 +30,7 @@ function WeatherApp() {
     )
   }
 
-  // Error with no cached data → show error screen
+  // Error with no cached data
   if (state.status === 'error' && !state.cachedData) {
     return (
       <div className="app">
@@ -39,7 +45,6 @@ function WeatherApp() {
     )
   }
 
-  // We have data (either fresh, stale, or cached during error)
   const data =
     state.status === 'success'
       ? state.data
@@ -62,8 +67,20 @@ function WeatherApp() {
 
       <main className="main">
         <CurrentWeather data={data.current} />
+
+        {data.hourly.length > 0 && (
+          <HourlyForecast hours={data.hourly} />
+        )}
+
         <WeatherDetails data={data.current} />
         <ForecastList days={data.daily} />
+
+        {airQualityState.status === 'success' && (
+          <AirQuality data={airQualityState.data} />
+        )}
+
+        <CityInfo />
+        <CityHistory />
       </main>
 
       <Footer fetchedAt={data.fetchedAt} />

@@ -12,6 +12,12 @@ export interface OpenMeteoResponse {
     wind_direction_10m: number
     pressure_msl: number
   }
+  hourly: {
+    time: string[]
+    temperature_2m: number[]
+    precipitation_probability: number[]
+    weather_code: number[]
+  }
   daily: {
     time: string[]
     temperature_2m_max: number[]
