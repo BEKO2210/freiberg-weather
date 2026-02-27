@@ -31,7 +31,7 @@ export interface AirQualityLevelInfo {
 export function getAirQualityLevel(aqi: number): AirQualityLevelInfo {
   if (aqi <= 20) return { level: 'gut', label: 'Gut', color: '#4ade80' }
   if (aqi <= 40) return { level: 'akzeptabel', label: 'Akzeptabel', color: '#a3e635' }
-  if (aqi <= 60) return { level: 'maessig', label: 'Maessig', color: '#facc15' }
+  if (aqi <= 60) return { level: 'maessig', label: 'Mäßig', color: '#facc15' }
   if (aqi <= 80) return { level: 'schlecht', label: 'Schlecht', color: '#fb923c' }
   return { level: 'sehr-schlecht', label: 'Sehr schlecht', color: '#ef4444' }
 }

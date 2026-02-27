@@ -17,7 +17,7 @@ export const CurrentWeather = memo(function CurrentWeather({ data }: CurrentWeat
         <h2>Aktuelles Wetter</h2>
         <InfoButton
           title="Aktuelles Wetter"
-          text="Zeigt die aktuelle Temperatur, den Wetterzustand und die gefuehlte Temperatur fuer Freiberg am Neckar. Die gefuehlte Temperatur beruecksichtigt Wind und Luftfeuchtigkeit. Die Daten werden alle 15 Minuten aktualisiert."
+          text="Zeigt die aktuelle Temperatur, den Wetterzustand und die gefühlte Temperatur für Freiberg am Neckar. Die gefühlte Temperatur berücksichtigt Wind und Luftfeuchtigkeit. Die Daten werden alle 15 Minuten aktualisiert."
         />
       </div>
       <div className="current-weather-hero">
@@ -29,8 +29,8 @@ export const CurrentWeather = memo(function CurrentWeather({ data }: CurrentWeat
           </div>
         </div>
         <p className="weather-label" aria-label={weather.ariaLabel}>{weather.label}</p>
-        <p className="feels-like">Gefuehlt wie {Math.round(data.feelsLike)}&#176;C</p>
-        <p className="location-badge">Freiberg am Neckar &middot; 222 m</p>
+        <p className="feels-like">Gefühlt wie {Math.round(data.feelsLike)}&#176;C</p>
+        <p className="location-badge">Freiberg am Neckar &middot; 222 m ü. NN</p>
       </div>
     </section>
   )

@@ -13,16 +13,15 @@ function formatHour(timeStr: string): string {
 }
 
 export const HourlyForecast = memo(function HourlyForecast({ hours }: HourlyForecastProps) {
-  // Show max 12 hours for clean display
   const displayHours = hours.slice(0, 12)
 
   return (
-    <section className="section-card hourly-forecast" aria-label="Stuendliche Vorhersage">
+    <section className="section-card hourly-forecast" aria-label="Stündliche Vorhersage">
       <div className="section-header">
-        <h2>Naechste Stunden</h2>
+        <h2>Nächste Stunden</h2>
         <InfoButton
-          title="Stuendliche Vorhersage"
-          text="Zeigt die vorhergesagte Temperatur und Niederschlagswahrscheinlichkeit fuer die naechsten Stunden in Freiberg am Neckar. Die Prozentzahl gibt die Wahrscheinlichkeit fuer Niederschlag an."
+          title="Stündliche Vorhersage"
+          text="Zeigt die vorhergesagte Temperatur und Niederschlagswahrscheinlichkeit für die nächsten Stunden in Freiberg am Neckar. Die Prozentzahl gibt die Wahrscheinlichkeit für Niederschlag an."
         />
       </div>
 

@@ -1,9 +1,10 @@
-const CACHE_NAME = 'freiberg-wetter-v1'
+const CACHE_NAME = 'freiberg-wetter-v2'
 const BASE = '/freiberg-weather/'
 
 const PRECACHE_URLS = [
   BASE,
   BASE + 'index.html',
+  BASE + 'icons/logo.png',
   BASE + 'icons/icon.svg',
   BASE + 'icons/icon-maskable.svg',
 ]
@@ -46,7 +47,7 @@ self.addEventListener('fetch', (event) => {
     return
   }
 
-  // App shell: cache first, network fallback
+  // App shell: stale-while-revalidate
   if (url.pathname.startsWith(BASE)) {
     event.respondWith(
       caches.match(request).then((cached) => {
