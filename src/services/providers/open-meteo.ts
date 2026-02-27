@@ -1,5 +1,5 @@
 import type { WeatherProvider } from '../weather-provider'
-import type { Location, WeatherData, DayForecast } from '../../types/weather'
+import type { Location, WeatherData, DayForecast, HourlyForecast } from '../../types/weather'
 import type { OpenMeteoResponse } from '../../types/api'
 
 const BASE_URL = 'https://api.open-meteo.com/v1/forecast'
@@ -15,6 +15,12 @@ const CURRENT_PARAMS = [
   'pressure_msl',
 ].join(',')
 
+const HOURLY_PARAMS = [
+  'temperature_2m',
+  'precipitation_probability',
+  'weather_code',
+].join(',')
+
 const DAILY_PARAMS = [
   'temperature_2m_max',
   'temperature_2m_min',
@@ -27,11 +33,31 @@ function buildUrl(location: Location, forecastDays: number): string {
     latitude: String(location.lat),
     longitude: String(location.lon),
     current: CURRENT_PARAMS,
+    hourly: HOURLY_PARAMS,
     daily: DAILY_PARAMS,
     timezone: location.timezone,
     forecast_days: String(forecastDays),
   })
   return `${BASE_URL}?${params.toString()}`
+}
+
+function getNext24Hours(raw: OpenMeteoResponse): HourlyForecast[] {
+  const now = new Date()
+  const hourly: HourlyForecast[] = []
+
+  for (let i = 0; i < raw.hourly.time.length; i++) {
+    const time = new Date(raw.hourly.time[i])
+    if (time >= now && hourly.length < 24) {
+      hourly.push({
+        time: raw.hourly.time[i],
+        temperature: raw.hourly.temperature_2m[i],
+        precipitationProbability: raw.hourly.precipitation_probability[i],
+        weatherCode: raw.hourly.weather_code[i],
+      })
+    }
+  }
+
+  return hourly
 }
 
 function mapResponse(raw: OpenMeteoResponse): WeatherData {
@@ -54,6 +80,7 @@ function mapResponse(raw: OpenMeteoResponse): WeatherData {
       windDirection: raw.current.wind_direction_10m,
       pressure: raw.current.pressure_msl,
     },
+    hourly: getNext24Hours(raw),
     daily,
     fetchedAt: Date.now(),
   }
