@@ -14,23 +14,23 @@
       <stop offset="100%" stop-color="#2a7ab5"/>
     </linearGradient>
   </defs>
-  <!-- Full background for maskable -->
+  <!-- Full-bleed background so edges never show transparency after masking -->
   <rect width="512" height="512" fill="url(#sky-m)"/>
-  <!-- Safe zone content (centered 80%) -->
-  <g transform="translate(51.2, 51.2) scale(0.8)">
+  <!-- Content constrained to safe zone: center 70% (Android masks up to 40% at corners) -->
+  <g transform="translate(76.8, 76.8) scale(0.7)">
     <!-- Sun -->
-    <circle cx="370" cy="120" r="48" fill="url(#gold-m)" opacity="0.95"/>
-    <g stroke="#f0a500" stroke-width="3.5" stroke-linecap="round" opacity="0.7">
-      <line x1="370" y1="58" x2="370" y2="44"/>
-      <line x1="370" y1="196" x2="370" y2="182"/>
-      <line x1="308" y1="120" x2="294" y2="120"/>
-      <line x1="432" y1="120" x2="446" y2="120"/>
-      <line x1="326" y1="76" x2="316" y2="66"/>
-      <line x1="414" y1="164" x2="424" y2="174"/>
-      <line x1="414" y1="76" x2="424" y2="66"/>
-      <line x1="326" y1="164" x2="316" y2="174"/>
+    <circle cx="370" cy="130" r="52" fill="url(#gold-m)" opacity="0.95"/>
+    <g stroke="#f0a500" stroke-width="4" stroke-linecap="round" opacity="0.8">
+      <line x1="370" y1="62" x2="370" y2="46"/>
+      <line x1="370" y1="214" x2="370" y2="198"/>
+      <line x1="302" y1="130" x2="286" y2="130"/>
+      <line x1="438" y1="130" x2="454" y2="130"/>
+      <line x1="322" y1="82" x2="311" y2="71"/>
+      <line x1="418" y1="178" x2="429" y2="189"/>
+      <line x1="418" y1="82" x2="429" y2="71"/>
+      <line x1="322" y1="178" x2="311" y2="189"/>
     </g>
-    <!-- Church tower -->
+    <!-- Church tower / Stadtkirche silhouette -->
     <g fill="#1a2a44">
       <rect x="156" y="160" width="40" height="200" rx="2"/>
       <polygon points="176,100 146,170 206,170"/>
@@ -38,26 +38,26 @@
       <rect x="165" y="92" width="22" height="8"/>
       <rect x="165" y="190" width="22" height="32" rx="11" fill="#0a1830"/>
       <circle cx="176" cy="248" r="14" fill="#0a1830"/>
-      <circle cx="176" cy="248" r="12" fill="none" stroke="#f0a500" stroke-width="1.5" opacity="0.5"/>
+      <circle cx="176" cy="248" r="12" fill="none" stroke="#f0a500" stroke-width="1.5" opacity="0.6"/>
       <rect x="100" y="280" width="76" height="80" rx="2"/>
       <polygon points="100,280 138,250 176,280"/>
       <rect x="176" y="290" width="70" height="70" rx="2"/>
       <polygon points="176,290 211,265 246,290"/>
-      <rect x="112" y="300" width="14" height="18" rx="2" fill="#f0a500" opacity="0.3"/>
-      <rect x="138" y="300" width="14" height="18" rx="2" fill="#f0a500" opacity="0.3"/>
-      <rect x="190" y="310" width="14" height="18" rx="2" fill="#f0a500" opacity="0.3"/>
-      <rect x="216" y="310" width="14" height="18" rx="2" fill="#f0a500" opacity="0.3"/>
+      <rect x="112" y="300" width="14" height="18" rx="2" fill="#f0a500" opacity="0.35"/>
+      <rect x="138" y="300" width="14" height="18" rx="2" fill="#f0a500" opacity="0.35"/>
+      <rect x="190" y="310" width="14" height="18" rx="2" fill="#f0a500" opacity="0.35"/>
+      <rect x="216" y="310" width="14" height="18" rx="2" fill="#f0a500" opacity="0.35"/>
       <rect x="246" y="300" width="55" height="60" rx="2"/>
       <polygon points="246,300 273,275 301,300"/>
       <rect x="301" y="310" width="45" height="50" rx="2"/>
       <polygon points="301,310 323,290 346,310"/>
     </g>
     <!-- Hill -->
-    <ellipse cx="256" cy="380" rx="220" ry="28" fill="#152238"/>
-    <!-- River -->
+    <ellipse cx="256" cy="380" rx="220" ry="30" fill="#152238"/>
+    <!-- Neckar river -->
     <path d="M30,400 C80,390 130,405 180,395 C230,385 280,400 330,392 C380,384 430,398 490,390"
-          fill="none" stroke="url(#river-m)" stroke-width="12" stroke-linecap="round" opacity="0.7"/>
-    <!-- Text -->
-    <text x="256" y="462" text-anchor="middle" font-family="Georgia, serif" font-size="40" font-weight="bold" fill="#f0a500" letter-spacing="5">FREIBERG</text>
+          fill="none" stroke="url(#river-m)" stroke-width="14" stroke-linecap="round" opacity="0.8"/>
+    <!-- Text FREIBERG -->
+    <text x="256" y="468" text-anchor="middle" font-family="Georgia, serif" font-size="44" font-weight="bold" fill="#f0a500" letter-spacing="6">FREIBERG</text>
   </g>
 </svg>

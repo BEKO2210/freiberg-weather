@@ -1,12 +1,17 @@
-const CACHE_VERSION = 3
+const CACHE_VERSION = 4
 const CACHE_NAME = 'freiberg-wetter-v' + CACHE_VERSION
 const BASE = '/freiberg-weather/'
 
 const PRECACHE_URLS = [
   BASE,
   BASE + 'index.html',
-  BASE + 'icons/icon-512x512.png',
+  BASE + 'manifest.json',
+  BASE + 'icons/icon.svg',
   BASE + 'icons/icon-192x192.png',
+  BASE + 'icons/icon-512x512.png',
+  BASE + 'icons/icon-maskable-192.png',
+  BASE + 'icons/icon-maskable-512.png',
+  BASE + 'icons/apple-touch-icon.png',
 ]
 
 // Install: cache app shell
