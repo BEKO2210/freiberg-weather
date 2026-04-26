@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 
 interface InfoButtonProps {
   title: string
@@ -22,9 +23,13 @@ export function InfoButton({ title, text }: InfoButtonProps) {
       }
     }
 
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
     document.addEventListener('keydown', handleKey)
     document.addEventListener('mousedown', handleClickOutside)
     return () => {
+      document.body.style.overflow = previousOverflow
       document.removeEventListener('keydown', handleKey)
       document.removeEventListener('mousedown', handleClickOutside)
     }
@@ -41,8 +46,8 @@ export function InfoButton({ title, text }: InfoButtonProps) {
         i
       </button>
 
-      {open && (
-        <div className="info-overlay" role="dialog" aria-label={title}>
+      {open && createPortal(
+        <div className="info-overlay" role="dialog" aria-modal="true" aria-label={title}>
           <div className="info-modal" ref={modalRef}>
             <div className="info-modal-header">
               <h3>{title}</h3>
@@ -56,7 +61,8 @@ export function InfoButton({ title, text }: InfoButtonProps) {
             </div>
             <p className="info-modal-text">{text}</p>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   )
